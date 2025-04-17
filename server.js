@@ -7,6 +7,8 @@ import methodOverride from 'method-override'
 
 
 // ** Routers **
+import gamesRouter from './controllers/games.js'
+import authRouter from './controllers/auth.js'
 
 
 
@@ -26,9 +28,16 @@ app.use(morgan('dev'))
 
 // ** Routes **
 
-// Home Page
+// Home Page - sign in / sign up
+app.use('/', authRouter)
 
-// Games
+
+
+
+// Games (add, explore, show, edit)
+app.use('/', gamesRouter)
+
+
 
 // Users
 
@@ -45,7 +54,7 @@ async function startServers() {
 
         app.listen(port, () => console.log(`Server up and running on port ${port}`))
     } catch (error) {
-
+        console.log(error)
     }
 } 
 startServers()
