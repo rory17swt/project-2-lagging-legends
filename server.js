@@ -21,7 +21,7 @@ const port = process.env.PORT || 3000
 
 // ** Middleware **
 app.use(methodOverride('_method'))
-
+app.use(express.urlencoded())
 app.use(morgan('dev'))
 
 

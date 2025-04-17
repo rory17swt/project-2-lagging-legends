@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show | Lagging Legends</title>
 </head>
+
 <body>
-    <h1>Show</h1>
-    
+    <%- include('../partials/nav.ejs') %>
+
+        <main>
+            <!-- Interact - Edit/Delete -->
+             <div>
+                <a class="edit-btn" href="/games/<%= game._id %>/edit">Update</a>
+                <form action="/games/<%= game._id %>?_method=Delete" method="POST">
+                    <button class="delete-btn" type="submit">Delete Game</button>
+                </form>
+             </div>
+            
+
+            <!-- Image -->
+            <img src="<%= game.gameImage %>">
+
+            <!-- Title -->
+            <h1>
+                <%= game.title %>
+            </h1>
+            <!-- Tags -->
+            <ul class="tags">
+                <% game.tags.forEach(tag=>{ %>
+                    <li>
+                        <%= tag %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <!-- Description -->
+            <p>
+                <%= game.description %>
+            </p>
+
+        </main>
+
+
+
 </body>
+
 </html>

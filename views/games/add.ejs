@@ -6,7 +6,57 @@
     <title>Add | Lagging Legends</title>
 </head>
 <body>
-    <h1>Add</h1>
+    <%- include('../partials/nav.ejs') %>
+
+    <main>
+        <h1>Add a Game for all to see!</h1>
+
+        <form action="/games" method="POST" >
+
+            <!-- Game Image -->
+            <div class="input-control">
+                <label for="gameImage">Game Image</label>
+                <input type="file" name="gameImage" id="gameImage" accept="image/*">
+            </div>
+
+            <!-- Title -->
+            <div class="input-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required maxlength="150" >
+            </div>
+
+            <!-- Content -->
+            <div class="input-control">
+                <label for="description">Game description</label>
+                <textarea name="description" id="description" required></textarea>
+            </div>
+
+            <!-- Tags -->
+             <div class="input-control">
+                <label for="tags">Add tags to your game</label>
+                <select name="tags" id="tags" multiple required>
+                    <option value="Strategy">Strategy</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Simulation">Simulation</option>
+                    <option value="RPG">RPG</option>
+                    <option value="Arcade">Arcade</option>
+                    <option value="Action">Action</option>
+                    <option value="Shooter">Shooter</option>
+                </select>
+             </div>
+
+             <!-- Submit -->
+            <button type="submit">Add to Explore!</button>
+
+        </form>
+
+
+
+
+
+    </main>
+
     
+
 </body>
 </html>

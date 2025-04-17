@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore | Lagging Legends</title>
 </head>
+
 <body>
     <%- include('../partials/nav.ejs') %>
 
-    <h1>Explore</h1>
-
+        <main>
+            <h1>Explore</h1>
+            <section class="games">
+                <% games.forEach(game=> { %>
+                    <game>
+                        <a href="/games/<%= game._id %>">
+                            <h2>
+                                <%= game.title %>
+                            </h2>
+                        </a>
+                    </game>
+                    <% }); %>
+            </section>
+        </main>
 </body>
+
 </html>
