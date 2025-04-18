@@ -87,7 +87,7 @@ router.put('/games/:gameId', async (req, res) => {
 router.delete('/games/:gameId', async (req, res) => {
     try {
         await Game.findByIdAndDelete(req.params.gameId)
-        return res.redirect('/games')
+        return res.redirect('/games/explore')
     } catch (error) {
         console.log(error)
     }
