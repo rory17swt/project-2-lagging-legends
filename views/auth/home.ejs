@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Lagging Legends</title>
 </head>
+
 <body>
     <%- include('../partials/nav.ejs') %>
 
-    <h1>Lagging Legends</h1>
+        <main>
+            <h1>Lagging Legends</h1>
+            <form class="form" action="/" method="POST">
+
+                <!-- Sign up redirect -->
+                 <p>Want to create an account? <a href="/auth/sign-up"></a></p>
+
+                <!-- Email Adress -->
+                <div class="input">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Email Adress" required>
+                </div>
+
+                <!-- Password -->
+                <div class="input">
+                    <label for="paswword">Password</label>
+                    <input type="password" nmae="password" placeholder="Password" required>
+                </div>
+
+                <!-- Error -->
+                <% if (errorMessage) { %>
+                    <p class="error-message">
+                        <%= ErrorMessage %>
+                    </p>
+                    <% } %>
+
+                <!-- Submit -->
+                 <button type="submit">Sign in</button>
+            </form>
+        </main>
+
+
 </body>
+
 </html>
