@@ -5,41 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Lagging Legends</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 
 <body>
-    <%- include('../partials/nav.ejs') %>
 
-        <main>
-            <h1>Lagging Legends</h1>
-            <form class="form" action="/" method="POST">
+    <a href="/games/explore">Explore</a>
 
-                <!-- Sign up redirect -->
-                <a href="/auth/sign-up">Want to create an Account?</a>
 
-                <!-- Email Adress -->
-                <div class="input">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="Email Adress" required>
-                </div>
+    <main class="home-main">
+        <h1>Lagging Legends</h1>
+        <form class="form" action="/" method="POST">
 
-                <!-- Password -->
-                <div class="input">
-                    <label for="paswword">Password</label>
-                    <input type="password" nmae="password" placeholder="Password" required>
-                </div>
+            <!-- Sign up redirect -->
+            <a href="/auth/sign-up">Want to create an Account?</a>
 
-                <!-- Error -->
-                <% if (errorMessage) { %>
-                    <p class="error-message">
-                        <%= ErrorMessage %>
-                    </p>
-                    <% } %>
+            <!-- Email Adress -->
+            <div class="input">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Email Adress" required>
+            </div>
 
-                <!-- Submit -->
-                 <button type="submit">Sign in</button>
-            </form>
-        </main>
+            <!-- Password -->
+            <div class="input">
+                <label for="paswword">Password</label>
+                <input type="password" nmae="password" placeholder="Password" required>
+            </div>
+
+            <!-- Error -->
+            <% if (errorMessage) { %>
+                <p class="error-message">
+                    <%= errorMessage %>
+                </p>
+                <% } %>
+
+                    <!-- Submit -->
+                    <button type="submit">Sign in</button>
+        </form>
+    </main>
 
 
 </body>

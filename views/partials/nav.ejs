@@ -1,12 +1,12 @@
 <header>
-
-<nav>
-    <a href="/">Home Page</a>
-    <a href="/auth/sign-up">Create an Account</a>
+  <nav>
     <a href="/games/explore">Explore</a>
-    <a href="/games/add">Add</a>
-    
-
-</nav>
-
+    <% if (user) { %>
+      <a href="/games/add">Add a game</a>
+      <a href="/auth/sign-out">Sign out</a>
+    <% } else { %>
+      <a href="/">Sign in</a>
+      <a href="/auth/sign-up">Create an account</a>
+    <% } %>
+  </nav>
 </header>

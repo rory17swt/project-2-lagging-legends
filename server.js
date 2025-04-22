@@ -5,6 +5,8 @@ import 'dotenv/config'
 import methodOverride from 'method-override'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
+import passUserToView from './middleware/passUserToView'
+import passErrorToView from './middleware/passErrorToView.js'
 
 
 
@@ -26,7 +28,7 @@ const port = process.env.PORT || 3000
 app.use(methodOverride('_method'))
 app.use(express.urlencoded())
 app.use(morgan('dev'))
-
+app.use(express.static('public'))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -37,6 +39,11 @@ app.use(session({
   }))
 
 
+// ** Custom Middleware**
+app.use(passUserToView)
+app.use(passErrorToView)
+
+
 
 // ** Routes **
 
@@ -44,18 +51,17 @@ app.use(session({
 app.use('/', authRouter)
 
 
-
-
 // Games (add, explore, show, edit)
 app.use('/', gamesRouter)
-
 
 
 // Users
 
 
 // 404 Route
-
+app.get('/{*any}', (req, res) => {
+  return res.status(404).render('404.ejs')
+})
 
 
 // ** Listen ** 

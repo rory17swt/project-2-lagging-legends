@@ -1,8 +1,10 @@
 import mongoose from 'mongoose'
 import express from 'express'
 import Game from '../models/Game.js'
-import parser from '../middleware/parser.js'
-import isSignedin from '../middleware/isSignedIn.js'
+import { error } from 'console'
+import isSignedIn from '../middleware/isSignedIn.js'
+
+
 
 const router = express.Router()
 
@@ -22,9 +24,11 @@ router.get('/games/explore', async (req, res) => {
 
 
 // add - add a game to explore
-router.get('/games/add', isSignedin, parser.single, (req, res) => {
+router.get('/games/add', isSignedIn, (req, res) => {
     try {
-        return res.render('games/add.ejs')
+        return res.render('games/add.ejs', {
+            errorMessage: error.message
+        })
     } catch (error) {
         console.log(error)
     }
@@ -32,9 +36,14 @@ router.get('/games/add', isSignedin, parser.single, (req, res) => {
 
 
 // show - view a selected game
-router.get('/games/:gameId', async (req, res) => {
+router.get('/games/:gameId', async (req, res, next) => {
     try {
-        const game = await Game.findById(req.params.gameId)
+        if (!mongoose.isValidObjectId(req.params.gameId)) {
+            return next()
+        }
+        const game = await Game.findById(req.params.gameId).populate(['author'])
+        if (!game) return next()
+
         return res.render('games/show.ejs', {
             game: game
         })
@@ -44,9 +53,17 @@ router.get('/games/:gameId', async (req, res) => {
 })
 
 // edit - edit a selected game
-router.get('/games/:gameId/edit', isSignedin, parser.single, async (req, res) => {
+router.get('/games/:gameId/edit', isSignedIn, async (req, res, next) => {
     try {
+        if (!mongoose.isValidObjectId(req.params.gameId)) {
+            return next()
+        }
         const game = await Game.findById(req.params.gameId)
+        if (!game) return next()
+
+        if (!game.author.equals(req.session.user._id)) {
+            return res.redirect(`/games/${game._id}`)
+        }
         return res.render('games/edit.ejs', {
             game: game
         })
@@ -61,22 +78,30 @@ router.get('/games/:gameId/edit', isSignedin, parser.single, async (req, res) =>
 // ** Routes that don't render a web page **
 
 // Add - add a game to the explore page
-router.post('/games', isSignedin, async (req, res) => {
+router.post('/games', isSignedIn, async (req, res) => {
     try {
+        req.body.author = req.session.user._id
+
         const addGame = await Game.create(req.body)
-        return res.redirect('/games/explore')
+        return res.redirect(`/games/${addGame._id}`)
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
+        return res.render('games/add.ejs', {
+            errorMessage: error.message
+        })
     }
 })
 
 // Update
-router.put('/games/:gameId', isSignedin, async (req, res) => {
+router.put('/games/:gameId', isSignedIn, async (req, res, next) => {
     try {
         const gameId = req.params.gameId
 
-        await Game.findByIdAndUpdate(gameId, req.body)
+        if(!mongoose.isValidObjectId(gameId)) {
+            return next()
+        }
 
+        await Game.findByIdAndUpdate(gameId, req.body)
         return res.redirect(`/games/${gameId}`)
 
     } catch (error) {
@@ -86,8 +111,11 @@ router.put('/games/:gameId', isSignedin, async (req, res) => {
 
 
 // Delete
-router.delete('/games/:gameId', isSignedin, async (req, res) => {
+router.delete('/games/:gameId', isSignedIn, async (req, res, next) => {
     try {
+        if (!mongoose.isValidObjectId(req.params.gameId)) {
+            return next()
+        }
         await Game.findByIdAndDelete(req.params.gameId)
         return res.redirect('/games/explore')
     } catch (error) {

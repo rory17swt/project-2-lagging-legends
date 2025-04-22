@@ -1,5 +1,5 @@
 import { kMaxLength } from 'buffer'
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 
 
@@ -9,6 +9,7 @@ const gameSchema = new mongoose.Schema({
     title: { type: String, required: true, maxlength: 150 },
     description: { type: String, required: true},
     tags: [String],
+    author: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 }, {
     timestamp: true
 })
