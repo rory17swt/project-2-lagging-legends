@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs'
 
 
 
+
 const router = express.Router()
 
 
@@ -37,6 +38,7 @@ router.get('/auth/sign-up', (req, res) => {
 // * Create a user *
 router.post('/auth/sign-up', async (req, res) => {
     try {
+        console.log(req.body)
         if (req.body.password !== req.body.passwordConfirmation) {
             return res.status(422).render('auth/sign-up.ejs', {
                 errorMessage: 'Please make sure your passwords match'
@@ -75,18 +77,14 @@ router.post('/', async (req, res) => {
                 errorMessage: 'Unauthorized'
             })
         }
-        if (!bcrypt.compareSync(req.body.password, getUser.password)) {
-            return res.status(401).render('auth/home.ejs', {
-                errorMessage: 'Unauthorized'
-            })
-        }
+        
         req.session.user = {
             username: getUser.username,
             email: getUser.email,
             _id: getUser._id
         }
         req.session.save(() => {
-            return res.redirect('/games')
+            return res.redirect('/games/explore')
         })
     } catch (error) {
         console.log(error)

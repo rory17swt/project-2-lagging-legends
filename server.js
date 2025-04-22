@@ -3,12 +3,15 @@ import morgan from 'morgan'
 import mongoose from 'mongoose'
 import 'dotenv/config'
 import methodOverride from 'method-override'
+import session from 'express-session'
+import MongoStore from 'connect-mongo'
 
 
 
 // ** Routers **
 import gamesRouter from './controllers/games.js'
 import authRouter from './controllers/auth.js'
+
 
 
 
@@ -23,6 +26,15 @@ const port = process.env.PORT || 3000
 app.use(methodOverride('_method'))
 app.use(express.urlencoded())
 app.use(morgan('dev'))
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI
+    })
+  }))
 
 
 

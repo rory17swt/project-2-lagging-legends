@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 import express from 'express'
 import Game from '../models/Game.js'
+import parser from '../middleware/parser.js'
+import isSignedin from '../middleware/isSignedIn.js'
 
 const router = express.Router()
 
@@ -20,7 +22,7 @@ router.get('/games/explore', async (req, res) => {
 
 
 // add - add a game to explore
-router.get('/games/add', (req, res) => {
+router.get('/games/add', isSignedin, parser.single, (req, res) => {
     try {
         return res.render('games/add.ejs')
     } catch (error) {
@@ -42,7 +44,7 @@ router.get('/games/:gameId', async (req, res) => {
 })
 
 // edit - edit a selected game
-router.get('/games/:gameId/edit', async (req, res) => {
+router.get('/games/:gameId/edit', isSignedin, parser.single, async (req, res) => {
     try {
         const game = await Game.findById(req.params.gameId)
         return res.render('games/edit.ejs', {
@@ -59,7 +61,7 @@ router.get('/games/:gameId/edit', async (req, res) => {
 // ** Routes that don't render a web page **
 
 // Add - add a game to the explore page
-router.post('/games', async (req, res) => {
+router.post('/games', isSignedin, async (req, res) => {
     try {
         const addGame = await Game.create(req.body)
         return res.redirect('/games/explore')
@@ -69,7 +71,7 @@ router.post('/games', async (req, res) => {
 })
 
 // Update
-router.put('/games/:gameId', async (req, res) => {
+router.put('/games/:gameId', isSignedin, async (req, res) => {
     try {
         const gameId = req.params.gameId
 
@@ -84,7 +86,7 @@ router.put('/games/:gameId', async (req, res) => {
 
 
 // Delete
-router.delete('/games/:gameId', async (req, res) => {
+router.delete('/games/:gameId', isSignedin, async (req, res) => {
     try {
         await Game.findByIdAndDelete(req.params.gameId)
         return res.redirect('/games/explore')
