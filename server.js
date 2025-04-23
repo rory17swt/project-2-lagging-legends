@@ -5,7 +5,7 @@ import 'dotenv/config'
 import methodOverride from 'method-override'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
-import passUserToView from './middleware/passUserToView'
+import passUserToView from './middleware/passUserToView.js'
 import passErrorToView from './middleware/passErrorToView.js'
 
 
@@ -53,9 +53,6 @@ app.use('/', authRouter)
 
 // Games (add, explore, show, edit)
 app.use('/', gamesRouter)
-
-
-// Users
 
 
 // 404 Route

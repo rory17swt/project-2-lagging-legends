@@ -5,52 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show | Lagging Legends</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
 
-    <main>
+    <main class="show-game-main">
         <!-- Interact - Edit/Delete -->
-        <div>
+        <div class="game-interactions">
             <% if (user && game.author.equals(user._id)) { %>
-                <div>
-                  <a class="edit-btn" href="/games/<%= game._id %>/edit">Update game</a>
-                  <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-                    <button class="delete-btn" type="submit">Delete game</button>
-                  </form>
+                <div class="game-actions">
+                    <a class="edit-btn" href="/games/<%= game._id %>/edit">Update game</a>
+                    <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+                        <button class="delete-btn" type="submit">Delete game</button>
+                    </form>
                 </div>
-              <% } %>
+            <% } %>
         </div>
 
-
-        <!-- Image -->
-        <img src="<%= game.gameImage %>">
+        <!-- Game Image -->
+        <div class="game-image-container">
+            <img src="<%= game.gameImage %>" alt="<%= game.title %>" class="game-image">
+        </div>
 
         <!-- Game details -->
-        <div>
-            <h1>
-                <%= game.title %>
-            </h1>
-            <p>Written by <%= game.author.username %>
-            </p>
+        <div class="game-details">
+            <h1 class="game-title-details"><%= game.title %></h1>
+            <p class="game-author">Written by <%= game.author.username %></p>
             <ul class="tags">
-                <% game.tags.forEach(tag=> { %>
-                    <li>
-                        <%= tag %>
-                    </li>
-                    <% }); %>
+                <% game.tags.forEach(tag => { %>
+                    <li class="tag-item"><%= tag %></li>
+                <% }); %>
             </ul>
         </div>
 
         <!-- Description -->
-        <p>
-            <%= game.description %>
-        </p>
+        <p class="game-description"><%= game.description %></p>
 
     </main>
-
-
 
 </body>
 

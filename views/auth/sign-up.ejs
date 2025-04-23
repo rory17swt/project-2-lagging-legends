@@ -5,52 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up | Lagging Legends</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 
 <body>
     <%- include('../partials/nav.ejs') %>
 
-        <main>
-            <h1>Create an Account!</h1>
-            <form class="form" action="/auth/sign-up" method="POST">
+    <main class="sign-up-main">
+        <h1 class="sign-up-title">Create an Account!</h1>
 
-                <!-- Email Adress -->
-                <div class="input">
-                    <label for="email">Email</label>
-                    <input type="emial" name="email" placeholder="Email Adress" required>
-                </div>
+        <form class="sign-up-form" action="/auth/sign-up" method="POST">
 
-                <!-- Username -->
-                <div class="input">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" placeholder="Username" required>
-                </div>
+            <!-- Email Address -->
+            <div class="input-container">
+                <label for="email" class="input-label">Email</label>
+                <input type="email" name="email" class="input-field" placeholder="Email Address" required>
+            </div>
 
-                <!-- Passwords -->
-                <div class="input">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
+            <!-- Username -->
+            <div class="input-container">
+                <label for="username" class="input-label">Username</label>
+                <input type="text" name="username" class="input-field" placeholder="Username" required>
+            </div>
 
-                <!-- Password Confirmation -->
-                <div class="input">
-                    <label for="passwordConfirmation">Confirm password</label>
-                    <input type="password" name="passwordConfirmation" placeholder="Confirm password" required>
-                </div>
+            <!-- Password -->
+            <div class="input-container">
+                <label for="password" class="input-label">Password</label>
+                <input type="password" name="password" class="input-field" placeholder="Password" required>
+            </div>
 
-                <!-- Error message -->
-                <% if (errorMessage) { %>
-                    <p class="error-message">
-                        <%= errorMessage %>
-                    </p>
-                    <% } %>
+            <!-- Password Confirmation -->
+            <div class="input-container">
+                <label for="passwordConfirmation" class="input-label">Confirm password</label>
+                <input type="password" name="passwordConfirmation" class="input-field" placeholder="Confirm password" required>
+            </div>
 
-                        <!-- Submit -->
-                        <button type="submit">Create an account!</button>
-            </form>
-        </main>
+            <!-- Error message -->
+            <% if (errorMessage) { %>
+                <p class="error-message">
+                    <%= errorMessage %>
+                </p>
+            <% } %>
 
-
+            <!-- Submit -->
+            <button type="submit" class="submit-btn">Create an account!</button>
+        </form>
+    </main>
 
 </body>
 

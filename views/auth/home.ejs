@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="home">
 
 <head>
     <meta charset="UTF-8">
@@ -10,40 +10,51 @@
 
 <body>
 
-    <a href="/games/explore">Explore</a>
-
-
     <main class="home-main">
-        <h1>Lagging Legends</h1>
-        <form class="form" action="/" method="POST">
+        <!-- Left Section: Form -->
+        <div class="form-container">
+            <h1 class="home-title">Lagging Legends</h1>
 
-            <!-- Sign up redirect -->
-            <a href="/auth/sign-up">Want to create an Account?</a>
+            <form class="login-form" action="/" method="POST">
+                <!-- Sign-up redirect -->
+                <a href="/auth/sign-up" class="sign-up-link">Want to create an Account?</a>
 
-            <!-- Email Adress -->
-            <div class="input">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Email Adress" required>
-            </div>
+                <!-- Email input -->
+                <div class="input-container">
+                    <label for="email" class="input-label">Email</label>
+                    <input type="email" name="email" id="email" class="input-field" placeholder="Email Address" required>
+                </div>
 
-            <!-- Password -->
-            <div class="input">
-                <label for="paswword">Password</label>
-                <input type="password" nmae="password" placeholder="Password" required>
-            </div>
+                <!-- Password input -->
+                <div class="input-container">
+                    <label for="password" class="input-label">Password</label>
+                    <input type="password" name="password" id="password" class="input-field" placeholder="Password" required>
+                </div>
 
-            <!-- Error -->
-            <% if (errorMessage) { %>
-                <p class="error-message">
-                    <%= errorMessage %>
-                </p>
+                <!-- Error message -->
+                <% if (errorMessage) { %>
+                    <p class="error-message">
+                        <%= errorMessage %>
+                    </p>
                 <% } %>
 
-                    <!-- Submit -->
-                    <button type="submit">Sign in</button>
-        </form>
-    </main>
+                <!-- Submit btn -->
+                <button type="submit" class="submit-btn">Sign in</button>
+            </form>
+        </div>
 
+        <!-- Right Section: About Text -->
+        <div class="about-container">
+            <p class="about-text">
+                Lagging Legends is the perfect hub for sharing and exploring your favourite
+                indie games or finding new games for you to enjoy! You can dive straight in
+                and explore, or to be part of the community, you can create an account and start
+                sharing your favourite indie games.
+            </p>
+            <!-- Explore Link -->
+            <a href="/games/explore" class="explore-link">Explore Indie Games</a>
+        </div>
+    </main>
 
 </body>
 

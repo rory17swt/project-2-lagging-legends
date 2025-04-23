@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
         folder: 'lagging_legends_uploads',
-        format: 'png',
+        allowed_formats: ['png', 'jpeg', 'JPEG', 'jpg', 'webp', 'gif', 'GIF'],
         public_id: (req, file) => {
             return Date.now() + '-' + file.originalname
         },

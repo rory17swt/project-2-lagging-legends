@@ -69,22 +69,24 @@ router.post('/auth/sign-up', isSignedOut, async (req, res) => {
 // * Sign in user *
 router.post('/', isSignedOut, async (req, res) => {
     try {
-        const getUser = await User.findOne({ email: req.body.email })
+        const findUser = await User.findOne({ email: req.body.email })
 
-        if (!getUser) {
+        if (!findUser) {
+            console.log('email not found')
             return res.status(401).render('auth/home.ejs', {
-                errorMessage: 'Unauthorized'
+                errorMessage: 'Your email or password does not match'
             })
         }
-        // if (!bcrypt.compareSync(req.body.password, getUser.password)) {
-        //     return res.status(401).render('auth/home.ejs', {
-        //         errorMessage: 'Unauthorized'
-        //     })
-        // }
+        if (!bcrypt.compareSync(req.body.password, findUser.password)) {
+            console.log('password not found')
+            return res.status(401).render('auth/home.ejs', {
+                errorMessage: 'Your email or password does not match'
+            })
+        }
         req.session.user = {
-            username: getUser.username,
-            email: getUser.email,
-            _id: getUser._id
+            username: findUser.username,
+            email: findUser.email,
+            _id: findUser._id
         }
         console.log(req.session.user)
         req.session.save(() => {

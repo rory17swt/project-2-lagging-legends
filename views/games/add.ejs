@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add | Lagging Legends</title>
 </head>
+
 <body>
     <%- include('../partials/nav.ejs') %>
 
-    <main>
-        <h1>Add a Game for all to see!</h1>
+    <main class="add-game-main">
+        <h1 class="add-game-title">Add a Game for all to see!</h1>
 
-        <form action="/games" method="POST">
+        <form class="add-game-form" action="/games" method="POST" enctype="multipart/form-data">
 
             <!-- Game Image -->
-            <div class="input">
-                <label for="gameImage">Game Image</label>
-                <input type="file" name="gameImage" id="gameImage" accept="image/*">
+            <div class="input-container">
+                <label for="gameImage" class="input-label">Game Image</label>
+                <input type="file" name="gameImage" id="gameImage" accept="image/*" size="3000" class="input-field">
             </div>
 
             <!-- Title -->
-            <div class="input">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" required maxlength="150" >
+            <div class="input-container">
+                <label for="title" class="input-label">Title</label>
+                <input type="text" name="title" id="title" class="input-field" required maxlength="150">
             </div>
 
             <!-- Content -->
-            <div class="input">
-                <label for="description">Game description</label>
-                <textarea name="description" id="description" required></textarea>
+            <div class="input-container">
+                <label for="description" class="input-label">Game description</label>
+                <textarea name="description" id="description" class="input-field" required></textarea>
             </div>
 
             <!-- Tags -->
-             <div class="input">
-                <label for="tags">Add tags to your game</label>
-                <select name="tags" id="tags" multiple required>
+            <div class="input-container">
+                <label for="tags" class="input-label">Add tags to your game</label>
+                <select name="tags" id="tags" class="input-field" multiple required>
                     <option value="Strategy">Strategy</option>
                     <option value="Adventure">Adventure</option>
                     <option value="Simulation">Simulation</option>
@@ -43,25 +45,17 @@
                     <option value="Action">Action</option>
                     <option value="Shooter">Shooter</option>
                 </select>
-             </div>
+            </div>
 
-             <!-- Error -->
-              <% if (errorMessage) { %>
-                <p class="error-message"></p><%= errorMessage %>
-                <% } %>
+            <!-- Error -->
+            <% if (errorMessage) { %>
+                <p class="error-message"><%= errorMessage %></p>
+            <% } %>
 
-             <!-- Submit -->
-            <button type="submit">Add to Explore!</button>
-
+            <!-- Submit -->
+            <button type="submit" class="submit-btn">Add to Explore!</button>
         </form>
-
-
-
-
-
     </main>
-
-    
-
 </body>
+
 </html>

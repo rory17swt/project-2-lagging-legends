@@ -3,6 +3,7 @@ import express from 'express'
 import Game from '../models/Game.js'
 import { error } from 'console'
 import isSignedIn from '../middleware/isSignedIn.js'
+import parser from '../middleware/parser.js'
 
 
 
@@ -78,8 +79,11 @@ router.get('/games/:gameId/edit', isSignedIn, async (req, res, next) => {
 // ** Routes that don't render a web page **
 
 // Add - add a game to the explore page
-router.post('/games', isSignedIn, async (req, res) => {
+router.post('/games', isSignedIn, parser.single('gameImage'), async (req, res) => {
     try {
+        
+        req.body.gameImage = req.file.path
+
         req.body.author = req.session.user._id
 
         const addGame = await Game.create(req.body)
@@ -93,8 +97,10 @@ router.post('/games', isSignedIn, async (req, res) => {
 })
 
 // Update
-router.put('/games/:gameId', isSignedIn, async (req, res, next) => {
+router.put('/games/:gameId', isSignedIn, parser.single('gameImage'), async (req, res, next) => {
     try {
+        req.body.gameImage = req.file.path
+
         const gameId = req.params.gameId
 
         if(!mongoose.isValidObjectId(gameId)) {

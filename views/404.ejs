@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found</title>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
 </head>
+
 <body>
-  <%- include('./partials/nav.ejs') %>
-  
-  <main>
-    <div>
-      <h1>Page not found!</h1>
-      <a href="/">Back to home page</a>
-    </div>
-  </main>
+    <%- include('../partials/nav.ejs') %>
+
+    <main class="error-main">
+        <div class="error-message">
+            <h1>Page Not Found!</h1>
+            <a href="/" class="back-home-link">Back to home page</a>
+        </div>
+    </main>
 </body>
+
 </html>

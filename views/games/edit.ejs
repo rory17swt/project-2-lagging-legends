@@ -1,61 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit | Lagging Legends</title>
 </head>
+
 <body>
     <%- include('../partials/nav.ejs') %>
 
-    <main>
-        <h1>Edit Game Post</h1>
+    <main class="edit-game-main">
+        <h1 class="edit-game-title">Edit Game Post</h1>
 
-        <!-- Form -->
-        <form class="form" action="/games/<%= game._id %>?_method=PUT" method="POST">
+        <form class="edit-game-form" action="/games/<%= game._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
-
-             <!-- Game Image -->
-             <div class="input">
-                <label for="gameImage">Game Image</label>
-                <input type="file" name="gameImage" id="gameImage" value="<%= game.gameImage %>" accept="image/*">
+            <!-- Game Image -->
+            <div class="input-container">
+                <label for="gameImage" class="input-label">Game Image</label>
+                <input type="file" name="gameImage" id="gameImage" class="input-field" value="<%= game.gameImage %>" accept="image/*">
             </div>
 
             <!-- Title -->
-             <div class="input">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" value="<%= game.title %>" required maxlength="150">
-             </div>
+            <div class="input-container">
+                <label for="title" class="input-label">Title</label>
+                <input type="text" name="title" id="title" class="input-field" value="<%= game.title %>" required maxlength="150">
+            </div>
 
-             <!-- Content -->
-              <div class="input">
-                <label for="description">Game description</label>
-                <textarea name="description" id="description" required><%= game.description %></textarea>
-              </div>
+            <!-- Content -->
+            <div class="input-container">
+                <label for="description" class="input-label">Game description</label>
+                <textarea name="description" id="description" class="input-field" required><%= game.description %></textarea>
+            </div>
 
-              <!-- Tags -->
-              <div class="input">
-                <label for="tags">Add tags to your game</label>
-                <select name="tags" id="tags" multiple required>
-                    <option value="Strategy" <%= game.tags.includes('Strategy') ? 'selected' : '' %>>Strategy</option>
-                    <option value="Adventure" <%= game.tags.includes('Adventure') ? 'selected' : '' %>>Adventure</option>
-                    <option value="Simulation" <%= game.tags.includes('Simulation') ? 'selected' : '' %>>Simulation</option>
-                    <option value="RPG" <%= game.tags.includes('RPG') ? 'selected' : '' %>>RPG</option>
-                    <option value="Arcade" <%= game.tags.includes('Arcade') ? 'selected' : '' %>>Arcade</option>
-                    <option value="Action" <%= game.tags.includes('Action') ? 'selected' : '' %>>Action</option>
-                    <option value="Shooter" <%= game.tags.includes('Shooter') ? 'selected' : '' %>>Shooter</option>
-                </select>
-             </div>
-
-             <!-- Submit -->
-              <button type="submit">Add to Explore!</button>
-
-
-        </form>
-
-
-    </main>
-
-
-</body>
-</html>
+            <!-- Tags -->
+            <div class="input-container">
+                <label for="tags" class="input-label">Add tags to your game</label>
+                <select name="tags" id="tags" class="input-field"
