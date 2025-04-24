@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit | Lagging Legends</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 
 <body>
@@ -33,7 +34,25 @@
                 <textarea name="description" id="description" class="input-field" required><%= game.description %></textarea>
             </div>
 
-            <!-- Tags -->
-            <div class="input-container">
-                <label for="tags" class="input-label">Add tags to your game</label>
-                <select name="tags" id="tags" class="input-field"
+
+                <!-- Tags -->
+                <div class="input-container">
+                    <label for="tags" class="input-label">Add tags to your game</label>
+                    <select name="tags" id="tags" class="input-field" multiple required>
+                        <option value="Strategy" <%=game.tags.includes('Strategy') ? 'selected' : '' %>>Strategy
+                        </option>
+                        <option value="Adventure" <%=game.tags.includes('Adventure') ? 'selected' : '' %>>Adventure
+                        </option>
+                        <option value="Simulation" <%=game.tags.includes('Simulation') ? 'selected' : '' %>>Simulation
+                        </option>
+                        <option value="RPG" <%=game.tags.includes('RPG') ? 'selected' : '' %>>RPG</option>
+                        <option value="Arcade" <%=game.tags.includes('Arcade') ? 'selected' : '' %>>Arcade</option>
+                        <option value="Action" <%=game.tags.includes('Action') ? 'selected' : '' %>>Action</option>
+                        <option value="Shooter" <%=game.tags.includes('Shooter') ? 'selected' : '' %>>Shooter</option>
+                    </select>
+                </div>
+                <!-- Submit -->
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+</body>

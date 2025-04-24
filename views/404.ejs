@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 
-<body>
-    <%- include('../partials/nav.ejs') %>
+<%- include('./partials/nav.ejs') %>
 
+<body>
     <main class="error-main">
         <div class="error-message">
             <h1>Page Not Found!</h1>
-            <a href="/" class="back-home-link">Back to home page</a>
+            <a href="/games/explore" class="back-home-link">Back to Explore page</a>
         </div>
     </main>
 </body>
