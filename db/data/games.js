@@ -8,8 +8,8 @@ export default [
       tags: ["RPG", "Strategy"]
     },
     {
-      gameImage: "https://example.com/images/pixel-riders.jpg",
-      title: "Pixel Riders",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745574871/lagging_legends_uploads/1745574870753-pixel%20drifters.png.png",
+      title: "Pixel Drifters",
       description: "An arcade racing shooter where you blast rivals on retro-futuristic tracks.",
       tags: ["Arcade", "Shooter", "Action"]
     },
@@ -68,7 +68,7 @@ export default [
       tags: ["Simulation", "Action"]
     },
     {
-      gameImage: "https://example.com/images/deepforge.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745575060/lagging_legends_uploads/1745575059217-deepforge.png.png",
       title: "Deepforge",
       description: "A mining sim with action elements where players uncover ancient tech underground.",
       tags: ["Simulation", "Action"]
