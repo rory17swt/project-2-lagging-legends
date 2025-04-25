@@ -20,31 +20,31 @@ export default [
       tags: ["Simulation", "Strategy"]
     },
     {
-      gameImage: "https://example.com/images/skyward-echo.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745575407/lagging_legends_uploads/1745575405989-Skyward.png.png",
       title: "Skyward Echo",
       description: "An adventure game in which you pilot a glider through ancient floating ruins.",
       tags: ["Adventure", "Simulation"]
     },
     {
-      gameImage: "https://example.com/images/neon-havoc.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745575927/lagging_legends_uploads/1745575927061-neon%20havoc.png.png",
       title: "Neon Havoc",
       description: "A chaotic twin-stick shooter with neon-drenched arenas and endless waves of enemies.",
       tags: ["Shooter", "Arcade", "Action"]
     },
     {
-      gameImage: "https://example.com/images/fort-keepers.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745576105/lagging_legends_uploads/1745576103637-fort%20keepers.png.png",
       title: "Fort Keepers",
       description: "Manage and defend a fortress in this simulation-strategy hybrid.",
       tags: ["Simulation", "Strategy"]
     },
     {
-      gameImage: "https://example.com/images/embertrail.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745576798/lagging_legends_uploads/1745576797237-embertrail.png.png",
       title: "Embertrail",
       description: "An action-adventure game where you travel a cursed land restoring ancient fire shrines.",
       tags: ["Action", "Adventure"]
     },
     {
-      gameImage: "https://example.com/images/sector-seven.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745575555/lagging_legends_uploads/1745575553965-sector%207.png.png",
       title: "Sector Seven",
       description: "A fast-paced space shooter with RPG progression and deep ship customization.",
       tags: ["Shooter", "RPG"]
@@ -62,8 +62,8 @@ export default [
       tags: ["Arcade", "Action"]
     },
     {
-      gameImage: "https://example.com/images/drift-empire.jpg",
-      title: "Drift Empire",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745575713/lagging_legends_uploads/1745575711962-driving%20empire.png.png",
+      title: "Driving Empire",
       description: "Simulate a street racing empire while managing crews, cars, and chaos.",
       tags: ["Simulation", "Action"]
     },
@@ -86,32 +86,32 @@ export default [
       tags: ["Shooter", "Action"]
     },
     {
-      gameImage: "https://example.com/images/battle-cuisine.jpg",
-      title: "Battle Cuisine",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745577037/lagging_legends_uploads/1745577036336-cooking%20battle.png.png",
+      title: "Cooking Battle",
       description: "A chaotic cooking simulation where you prepare dishes while dodging sabotage.",
       tags: ["Simulation", "Action"]
     },
     {
-      gameImage: "https://example.com/images/windbound-league.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745577252/lagging_legends_uploads/1745577250540-windboud%20league.png.png",
       title: "Windbound League",
       description: "Adventure across oceanic islands, form alliances, and conquer the seas.",
       tags: ["Adventure", "RPG"]
     },
     {
-      gameImage: "https://example.com/images/necroclash.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745576353/lagging_legends_uploads/1745576351977-necroclash.png.png",
       title: "Necroclash",
       description: "A strategy RPG where necromancers wage war with summoned horrors.",
       tags: ["Strategy", "RPG"]
     },
     {
-      gameImage: "https://example.com/images/bit-blast.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745576491/lagging_legends_uploads/1745576490466-bit%20blast.png.png",
       title: "Bit Blast",
       description: "A hyper-fast arcade shooter with bullet hell chaos and power-up madness.",
       tags: ["Arcade", "Shooter"]
     },
     {
-      gameImage: "https://example.com/images/starlight-tactician.jpg",
-      title: "Starlight Tactician",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745576675/lagging_legends_uploads/1745576673569-starlight%20tactics.png.png",
+      title: "Starlight Tacticics",
       description: "Lead a crew of outcasts across a galactic warzone in this tactical strategy game.",
       tags: ["Strategy", "RPG"]
     },
