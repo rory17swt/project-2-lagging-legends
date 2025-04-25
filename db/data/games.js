@@ -1,6 +1,8 @@
+
+
 export default [
     {
-      gameImage: "https://example.com/images/iron-citadel.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745570348/lagging_legends_uploads/1745570347814-iron.png.png",
       title: "Iron Citadel",
       description: "A tactical RPG set in a fortified mountain kingdom besieged by mechanical invaders.",
       tags: ["RPG", "Strategy"]
@@ -12,7 +14,7 @@ export default [
       tags: ["Arcade", "Shooter", "Action"]
     },
     {
-      gameImage: "https://example.com/images/sporefront.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745571302/lagging_legends_uploads/1745571301343-Spore.png.png",
       title: "Sporefront",
       description: "A simulation-strategy hybrid where you lead a fungal civilization across a hostile planet.",
       tags: ["Simulation", "Strategy"]
@@ -48,13 +50,13 @@ export default [
       tags: ["Shooter", "RPG"]
     },
     {
-      gameImage: "https://example.com/images/chrono-battle.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745571686/lagging_legends_uploads/1745571684670-Chrono.png.png",
       title: "Chrono Battle",
       description: "A turn-based strategy RPG where you manipulate time to outsmart enemies.",
       tags: ["Strategy", "RPG"]
     },
     {
-      gameImage: "https://example.com/images/retro-rumble.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745570641/lagging_legends_uploads/1745570639577-retro.png.png",
       title: "Retro Rumble",
       description: "An arcade brawler where you punch your way through 80s-inspired side-scrolling levels.",
       tags: ["Arcade", "Action"]
@@ -72,13 +74,13 @@ export default [
       tags: ["Simulation", "Action"]
     },
     {
-      gameImage: "https://example.com/images/ruins-reclaimed.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745570805/lagging_legends_uploads/1745570801679-ruins.png.png",
       title: "Ruins Reclaimed",
       description: "Explore dangerous temples and outsmart ancient traps in this strategic adventure game.",
       tags: ["Adventure", "Strategy"]
     },
     {
-      gameImage: "https://example.com/images/dusk-gunner.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745571053/lagging_legends_uploads/1745571052040-dusk.png.png",
       title: "Dusk Gunner",
       description: "A gritty side-scrolling shooter where you take on syndicates across a crumbling world.",
       tags: ["Shooter", "Action"]
