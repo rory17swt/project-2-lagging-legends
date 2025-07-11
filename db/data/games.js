@@ -116,7 +116,7 @@ export default [
       tags: ["Strategy", "RPG"]
     },
     {
-      gameImage: "https://example.com/images/corebreaker.jpg",
+      gameImage: "https://res.cloudinary.com/douqojlp6/image/upload/v1745577471/lagging_legends_uploads/1745577470198-corebreaker.png.png",
       title: "Corebreaker",
       description: "Destroy planetary cores in an explosive shooter with arcade challenge modes.",
       tags: ["Shooter", "Arcade"]
