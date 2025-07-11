@@ -58,7 +58,7 @@ we were required to present our wireframes and database design (DBD) diagram to 
 ## Planning:
 ### Wireframes:
 
-IMG
+![](images/All%20Wireframes.png)
  
 I created wireframes to visualise the different user flows and routes within the app, which helped streamline the development process, with the potential to add a profile page,
 comments and likes as a stretch goal. I also made a clear distinction between routes accessible to all users and those that require authentication, ensuring it was easy to understand
